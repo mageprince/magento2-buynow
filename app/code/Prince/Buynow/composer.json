@@ -1,0 +1,25 @@
+{
+    "name": "prince/module-buynow",
+    "description": "",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Prince",
+            "email": "info@info.com"
+        },
+        {
+            "name": "Prince Patel",
+            "email": "7pprince@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Prince\\Test\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
