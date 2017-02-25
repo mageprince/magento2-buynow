@@ -57,7 +57,7 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
             if (!$this->_checkoutSession->getNoCartRedirect(true)) {
 
                 // redirect to checkout page
-                return $this->goBack('/magento2/checkout/', $product);
+                return $this->goBack('/checkout/', $product);
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             if ($this->_checkoutSession->getUseNotice(true)) {
