@@ -2,7 +2,6 @@
 
 namespace Prince\Buynow\Controller\Cart;
 
-
 class Add extends \Magento\Checkout\Controller\Cart\Add
 {
     /**
