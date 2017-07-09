@@ -1,7 +1,8 @@
 # Magento 2 BuyNow 
 
-This module is used to add "BuyNow" button on product view page to buy product directly without add to cart product.
-To # Installation Instruction
+This module add "BuyNow" button on product view page to process directly checkout.
+
+# Installation Instruction
 
 * Copy the content of the repo to the Magento 2 root folder
 * Run command:
