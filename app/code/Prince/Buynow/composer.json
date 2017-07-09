@@ -3,7 +3,7 @@
     "description": "Magento 2 add buyNow button extension",
     "license": "proprietary",
     "type": "magento2-module",
-    "version": "0.1.0",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Prince Patel",
