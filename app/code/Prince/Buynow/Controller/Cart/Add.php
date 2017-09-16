@@ -35,8 +35,11 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
                 return $this->goBack();
             }
 
-            // Uncomment this if you want only your added product in cart
-            //$this->cart->truncate();
+            $cartProducts = $this->_objectManager->create('Prince\Buynow\Helper\Data')->getConfig('buynow/general/cartproducts');
+            
+            if(!$cartProducts) {
+                $this->cart->truncate();    
+            } 
 
             $this->cart->addProduct($product, $params);
             if (!empty($related)) {

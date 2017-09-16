@@ -1,0 +1,10 @@
+.catalog-category-view .product-item-inner.buynow {
+	position: relative;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 5px 1px;
+}
+
+.catalog-category-view button.buynow {
+    width: 103px;
+}
