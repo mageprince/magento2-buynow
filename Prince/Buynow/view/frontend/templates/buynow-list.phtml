@@ -1,0 +1,29 @@
+<?php $product = $block->getProduct(); ?>
+<?php if ($product->isSaleable()) : ?>
+    <?php $postParams = $block->getAddToCartPostParams($product); ?>
+    <div class="product-item-inner buynow">
+        <form action="<?php /* @noEscape */ echo $postParams['action']; ?>"
+              id="product_addtocart_form_<?php /* @noEscape */ echo $postParams['data']['product']; ?>"
+              method="post">
+            <input type="hidden" 
+                   name="product"
+                   value="<?php /* @noEscape */ echo $postParams['data']['product']; ?>">
+            <input type="hidden"
+                   name="<?php /* @noEscape */ echo 'uenc'; ?>"
+                   value="<?php /* @noEscape */ echo $postParams['data']['uenc']; ?>">
+            <?php echo $block->getBlockHtml('formkey')?>
+            <button type="submit"
+                    title="<?php echo $block->escapeHtml(__('Buy Now')); ?>"
+                    class="action tocart buynow primary"
+                    data-mage-init='
+                    {
+                        "Prince_Buynow/js/buy-now": {
+                            "form": "#product_addtocart_form_<?php echo $postParams['data']['product']; ?>"
+                        }
+                    }
+                '>
+                <span><?php /* @noEscape */ echo __('Buy Now') ?></span>
+            </button>
+        </form>
+    </div>
+<?php endif; ?>

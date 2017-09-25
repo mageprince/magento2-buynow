@@ -4,7 +4,7 @@ This module add "BuyNow" button on product view page to process directly checkou
 
 # Installation Instruction
 
-* Copy the content of the repo to the Magento 2 root folder
+* Copy the content of the repo to the app/code folder
 * Run command:
 <b>php bin/magento setup:upgrade</b>
 * Run Command:

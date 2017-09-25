@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+    	<css src="Prince_Buynow::css/buynow.css"/>
+    </head>
+    <body>
+        <referenceBlock name="product.info.addto">
+            <block class="Magento\Catalog\Block\Product\View" name="product.buynow" template="Prince_Buynow::buynow-view.phtml" before="-" ifconfig="buynow/general/enableonview"/>
+        </referenceBlock>
+    </body>
+</page>

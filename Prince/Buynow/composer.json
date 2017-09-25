@@ -1,5 +1,5 @@
 {
-    "name": "prince/module-buynowbeta",
+    "name": "prince/module-buynow",
     "description": "Magento2 BuyNow Module",
     "require": {
         "magento/module-store": ">100.0",

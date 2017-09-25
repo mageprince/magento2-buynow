@@ -3,8 +3,9 @@
     <default>
         <buynow>
             <general>
-                <status>1</status>
                 <cartproducts>0</cartproducts>
+                <enableonlist>0</enableonlist>
+                <enableonview>1</enableonview>
             </general>
         </buynow>
     </default>
