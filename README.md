@@ -24,7 +24,7 @@ This module add "BuyNow" button on product view page and list page to process di
 
 <img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/BuyNow/admin-settings.png" alt="config settings" border="0" />
 
-# How to find addtocart Id
+# How To Find Addtocart Form Id
 
 Go to product view page and right click on addtocart button and click on inspect element. Then scroll up and find addtocart form id.
 
