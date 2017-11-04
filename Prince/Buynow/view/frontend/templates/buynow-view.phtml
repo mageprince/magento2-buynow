@@ -1,13 +1,15 @@
 <?php $helper = $this->helper("Prince\Buynow\Helper\Data"); ?>
 <?php $addtocartId = $helper->getConfig('buynow/general/addtocartid'); ?>
+<?php $buttonTitle = $helper->getConfig('buynow/general/buttontitle'); ?>
 <?php $formId = $addtocartId ? $addtocartId : "product_addtocart_form"; ?>
-<button type="submit" title="<?php /* @escapeNotVerified */ echo __('Buy Now') ?>" id="buy-now" class="action primary tocart" style="font-size: 1.8rem;padding: 17px 17px;
-    width: 49%;" data-mage-init='
-{
-    "Prince_Buynow/js/buy-now": {
-        "form": "#<?php echo $formId; ?>"
+<div class="buynow-button">
+    <button type="submit" title="<?php /* @escapeNotVerified */ echo __($buttonTitle) ?>" id="buy-now" class="action primary tocart" data-mage-init='
+    {
+        "Prince_Buynow/js/buy-now": {
+            "form": "#<?php echo $formId; ?>"
+        }
     }
-}
-'>
-    <span><?php /* @escapeNotVerified */ echo __('Buy Now') ?></span>
-</button>
+    '>
+        <span><?php /* @escapeNotVerified */ echo __($buttonTitle) ?></span>
+    </button>
+</div>

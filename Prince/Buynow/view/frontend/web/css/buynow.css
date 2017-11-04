@@ -8,3 +8,7 @@
 .catalog-category-view button.buynow {
     width: 103px;
 }
+
+.catalog-product-view #product-addtocart-button {
+	float: left;
+}

@@ -23,9 +23,11 @@
                     <label>Enable On View Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="addtocartid" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="buttontitle" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Title</label>
+                </field>
+                <field id="addtocartid" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Addtocart form Id</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Enter addtocart form id for product view page(Ex. product_addtocart_form)</comment>
                 </field>
             </group>

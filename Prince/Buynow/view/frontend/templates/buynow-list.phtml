@@ -1,4 +1,6 @@
 <?php $product = $block->getProduct(); ?>
+<?php $helper = $this->helper("Prince\Buynow\Helper\Data"); ?>
+<?php $buttonTitle = $helper->getConfig('buynow/general/buttontitle'); ?>
 <?php if ($product->isSaleable()) : ?>
     <?php $postParams = $block->getAddToCartPostParams($product); ?>
     <div class="product-item-inner buynow">
@@ -13,7 +15,7 @@
                    value="<?php /* @noEscape */ echo $postParams['data']['uenc']; ?>">
             <?php echo $block->getBlockHtml('formkey')?>
             <button type="submit"
-                    title="<?php echo $block->escapeHtml(__('Buy Now')); ?>"
+                    title="<?php echo $block->escapeHtml(__($buttonTitle)); ?>"
                     class="action tocart buynow primary"
                     data-mage-init='
                     {
@@ -22,7 +24,7 @@
                         }
                     }
                 '>
-                <span><?php /* @noEscape */ echo __('Buy Now') ?></span>
+                <span><?php /* @noEscape */ echo __($buttonTitle) ?></span>
             </button>
         </form>
     </div>

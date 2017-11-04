@@ -5,8 +5,11 @@
     	<css src="Prince_Buynow::css/buynow.css"/>
     </head>
     <body>
-        <referenceBlock name="product.info.addto">
+        <referenceBlock name="product.info.addtocart">
             <block class="Magento\Catalog\Block\Product\View" name="product.buynow" template="Prince_Buynow::buynow-view.phtml" before="-" ifconfig="buynow/general/enableonview"/>
+        </referenceBlock>
+        <referenceBlock name="product.info.addtocart.additional">
+            <block class="Magento\Catalog\Block\Product\View" name="product.buynow.config" template="Prince_Buynow::buynow-view.phtml" before="-" ifconfig="buynow/general/enableonview"/>
         </referenceBlock>
     </body>
 </page>
