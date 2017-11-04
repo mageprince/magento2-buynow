@@ -1,6 +1,6 @@
 # Magento 2 BuyNow 
 
-This module add "BuyNow" button on product view page to process directly checkout.
+This module add "BuyNow" button on product view page and list page to process directly checkout.
 
 # Installation Instruction
 

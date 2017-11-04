@@ -6,6 +6,7 @@
                 <cartproducts>0</cartproducts>
                 <enableonlist>0</enableonlist>
                 <enableonview>1</enableonview>
+                <addtocartid>product_addtocart_form</addtocartid>
             </general>
         </buynow>
     </default>

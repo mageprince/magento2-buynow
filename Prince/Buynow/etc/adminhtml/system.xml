@@ -16,12 +16,17 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="enableonlist" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Add Buy Now Button On List Page</label>
+                    <label>Enable On List Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="enableonview" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Add Buy Now Button On View Page</label>
+                    <label>Enable On View Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="addtocartid" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Addtocart form Id</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enter addtocart form id for product view page(Ex. product_addtocart_form)</comment>
                 </field>
             </group>
         </section>

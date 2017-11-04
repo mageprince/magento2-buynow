@@ -1,30 +1,13 @@
-<?php $_product = $block->getProduct(); ?>
-<?php $buttonTitle = __('Buy Now'); ?>
-<form action="<?php /* @escapeNotVerified */ echo $block->getSubmitUrl($_product) ?>" method="post"
-          id="product_buynow_form">
-    <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $_product->getId() ?>" />
-    <input type="hidden" name="selected_configurable_option" value="" />
-    <input type="hidden" name="related_product" id="related-products-field" value="" />
-    <?php echo $block->getBlockHtml('formkey')?>
-    <?php if ($_product->isSaleable()): ?>
-        <div class="box-tocart">
-            <div class="fieldset">
-                <div class="actions">
-                    <button type="submit"
-                            title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
-                            class="action primary tocart"
-                            id="product-addtocart-button"
-                            data-mage-init='
-                            {
-                                "Prince_Buynow/js/buy-now": {
-                                    "form": "#product_buynow_form"
-                                }
-                            }'>
-                        <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
-                    </button>
-                    <?php echo $block->getChildHtml('', true) ?>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
-</form>
+<?php $helper = $this->helper("Prince\Buynow\Helper\Data"); ?>
+<?php $addtocartId = $helper->getConfig('buynow/general/addtocartid'); ?>
+<?php $formId = $addtocartId ? $addtocartId : "product_addtocart_form"; ?>
+<button type="submit" title="<?php /* @escapeNotVerified */ echo __('Buy Now') ?>" id="buy-now" class="action primary tocart" style="font-size: 1.8rem;padding: 17px 17px;
+    width: 49%;" data-mage-init='
+{
+    "Prince_Buynow/js/buy-now": {
+        "form": "#<?php echo $formId; ?>"
+    }
+}
+'>
+    <span><?php /* @escapeNotVerified */ echo __('Buy Now') ?></span>
+</button>
