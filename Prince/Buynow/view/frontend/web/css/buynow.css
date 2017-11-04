@@ -12,3 +12,12 @@
 .catalog-product-view #product-addtocart-button {
 	float: left;
 }
+
+.catalog-product-view #buy-now
+{
+	margin-bottom: 15px;
+	width: 49%;
+    line-height: 2.2rem;
+    padding: 14px 17px;
+    font-size: 1.8rem;
+}

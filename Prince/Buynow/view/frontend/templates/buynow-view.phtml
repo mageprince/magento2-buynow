@@ -3,7 +3,7 @@
 <?php $buttonTitle = $helper->getConfig('buynow/general/buttontitle'); ?>
 <?php $formId = $addtocartId ? $addtocartId : "product_addtocart_form"; ?>
 <div class="buynow-button">
-    <button type="submit" title="<?php /* @escapeNotVerified */ echo __($buttonTitle) ?>" id="buy-now" class="action primary tocart" data-mage-init='
+    <button type="submit" title="<?php /* @escapeNotVerified */ echo __($buttonTitle) ?>" id="buy-now" class="action primary" data-mage-init='
     {
         "Prince_Buynow/js/buy-now": {
             "form": "#<?php echo $formId; ?>"
