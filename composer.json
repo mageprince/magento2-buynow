@@ -11,6 +11,12 @@
     "license": [
         "proprietary"
     ],
+    "authors": [
+        {
+          "name": "Prince Patel",
+          "email": "mail.mageprince@gmail.com"
+        }
+    ],
     "autoload": {
         "files": [
             "registration.php"
