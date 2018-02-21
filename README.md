@@ -4,7 +4,7 @@ This module add "BuyNow" button on product view page and list page to process di
 
 # Installation Instruction
 
-* Copy the content of the repo to the <b>app/code</b> folder
+* Copy the content of the repo to the <b>app/code/Prince/Buynow/</b> folder
 * Run command:
 <b>php bin/magento setup:upgrade</b>
 * Run Command:
