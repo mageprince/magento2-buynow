@@ -20,7 +20,7 @@
  * along with this program. If not, see http://opensource.org/licenses/gpl-3.0.html
  *
  * @category MagePrince
- * @package Prince_Extrafee
+ * @package Prince_Buynow
  * @copyright Copyright (c) 2018 MagePrince
  * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
  * @author MagePrince
