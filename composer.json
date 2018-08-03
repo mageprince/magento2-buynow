@@ -1,22 +1,18 @@
 {
-    "name": "prince/module-buynow",
-    "description": "Magento2 BuyNow Module",
-    "require": {
-        "magento/module-store": ">100.0",
-        "magento/module-backend": ">100.0",
-        "magento/framework": ">100.0"
-    },
+    "name": "mageprince/module-buynow",
+    "description": "Magento2 Buy Now Module",
+    "homepage": "https://github.com/mageprince/magento2-productAttachment",
     "type": "magento2-module",
-    "version": "1.0.0",
-    "license": [
-        "proprietary"
-    ],
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
           "name": "Prince Patel",
           "email": "mail.mageprince@gmail.com"
         }
     ],
+    "support": {
+        "issues": "https://github.com/mageprince/magento2-buynow/issues"
+    },
     "autoload": {
         "files": [
             "registration.php"
