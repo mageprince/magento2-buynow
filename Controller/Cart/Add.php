@@ -59,7 +59,7 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
             }
 
             $cartProducts = $this->_objectManager->create('Prince\Buynow\Helper\Data')
-                             ->getConfig('buynow/general/cartproducts');
+                             ->getConfig('buynow/general/keep_cart_products');
             if (!$cartProducts) {
                 $this->cart->truncate(); //remove all products from cart
             } 

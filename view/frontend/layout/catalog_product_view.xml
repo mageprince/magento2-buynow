@@ -1,15 +1,26 @@
 <?xml version="1.0"?>
-<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-    	<css src="Prince_Buynow::css/buynow.css"/>
+        <css src="Prince_Buynow::css/buynow.css"/>
     </head>
     <body>
         <referenceBlock name="product.info.addtocart">
-            <block class="Magento\Catalog\Block\Product\View" name="product.buynow" template="Prince_Buynow::buynow-view.phtml" before="-" ifconfig="buynow/general/enableonview"/>
+            <block class="Magento\Catalog\Block\Product\View"
+                   name="product.buynow"
+                   template="Prince_Buynow::buynow-view.phtml"
+                   before="-" ifconfig="buynow/general/enable_view"/>
         </referenceBlock>
         <referenceBlock name="product.info.addtocart.additional">
-            <block class="Magento\Catalog\Block\Product\View" name="product.buynow.config" template="Prince_Buynow::buynow-view.phtml" before="-" ifconfig="buynow/general/enableonview"/>
+            <block class="Magento\Catalog\Block\Product\View"
+                   name="product.buynow.config"
+                   template="Prince_Buynow::buynow-view.phtml"
+                   before="-" ifconfig="buynow/general/enable_view"/>
+        </referenceBlock>
+        <referenceBlock name="related.product.addto">
+            <block class="Prince\Buynow\Block\Product\ListProduct"
+                   ifconfig="buynow/general/enable_related"
+                   name="product.buynow.related"
+                   before="-" template="Prince_Buynow::buynow-list.phtml"/>
         </referenceBlock>
     </body>
 </page>

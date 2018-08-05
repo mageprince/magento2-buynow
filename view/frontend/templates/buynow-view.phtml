@@ -1,6 +1,6 @@
 <?php $helper = $this->helper("Prince\Buynow\Helper\Data"); ?>
-<?php $addtocartId = $helper->getConfig('buynow/general/addtocartid'); ?>
-<?php $buttonTitle = $helper->getConfig('buynow/general/buttontitle'); ?>
+<?php $addtocartId = $helper->getConfig('buynow/general/addtocart_id'); ?>
+<?php $buttonTitle = $helper->getConfig('buynow/general/button_title'); ?>
 <?php $formId = $addtocartId ? $addtocartId : "product_addtocart_form"; ?>
 <div class="buynow-button">
     <button type="submit" title="<?php /* @escapeNotVerified */ echo __($buttonTitle) ?>" id="buy-now" class="action primary" data-mage-init='

@@ -28,57 +28,44 @@
 
 namespace Prince\Buynow\Block\Product;
 
-use Magento\Catalog\Api\CategoryRepositoryInterface;
-
-class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
+class ListProduct extends \Magento\Catalog\Block\Product\ProductList\Item\Block
 {
     /**
-     * @var Prince\Buynow\Helper\Data
+     * @var \Magento\Framework\Url\Helper\Data
      */
-    private $helper;
+    protected $urlHelper;
 
     /**
-     * @param Magento\Catalog\Block\Product\Context $context
-     * @param Magento\Framework\Data\Helper\PostHelper $postDataHelper
-     * @param Magento\Catalog\Model\Layer\Resolver $layerResolver
-     * @param CategoryRepositoryInterface $categoryRepository
-     * @param Magento\Framework\Url\Helper\Data $urlHelper
-     * @param Prince\Buynow\Helper\Data $helper
+     * ListProduct constructor.
+     * @param \Magento\Catalog\Block\Product\Context $context
+     * @param \Magento\Framework\Url\Helper\Data $urlHelper
+     * @param array $data
      */
     public function __construct(
         \Magento\Catalog\Block\Product\Context $context,
-        \Magento\Framework\Data\Helper\PostHelper $postDataHelper,
-        \Magento\Catalog\Model\Layer\Resolver $layerResolver,
-        CategoryRepositoryInterface $categoryRepository,
         \Magento\Framework\Url\Helper\Data $urlHelper,
-        \Prince\Buynow\Helper\Data $helper
+        array $data = []
     ) {
-        $this->helper = $helper;
-        parent::__construct(
-            $context,
-            $postDataHelper,
-            $layerResolver,
-            $categoryRepository,
-            $urlHelper
-        );
+        $this->urlHelper = $urlHelper;
+        parent::__construct($context, $data);
     }
 
-    public function getProductDetailsHtml(\Magento\Catalog\Model\Product $product)
+    /**
+     * Get post parameters
+     *
+     * @param \Magento\Catalog\Model\Product $product
+     * @return string
+     */
+    public function getAddToCartPostParams(\Magento\Catalog\Model\Product $product)
     {
-        $enableList = $this->helper->getConfig('buynow/general/enableonlist');
-        $html = '';
-        if($enableList) {
-            $html = $this->getLayout()
-                 ->createBlock('Prince\Buynow\Block\Product\ListProduct')
-                 ->setProduct($product)
-                 ->setTemplate('Prince_Buynow::buynow-list.phtml')
-                 ->toHtml();    
-        }
-        $renderer = $this->getDetailsRenderer($product->getTypeId());
-        if ($renderer) {
-            $renderer->setProduct($product);
-            return $html.$renderer->toHtml();
-        }
-        return '';
+        $url = $this->getAddToCartUrl($product);
+        return [
+            'action' => $url,
+            'data' => [
+                'product' => $product->getEntityId(),
+                \Magento\Framework\App\ActionInterface::PARAM_NAME_URL_ENCODED => $this->urlHelper->getEncodedUrl($url),
+            ]
+        ];
     }
 }
+

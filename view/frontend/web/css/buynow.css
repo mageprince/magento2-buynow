@@ -21,3 +21,12 @@
     padding: 14px 17px;
     font-size: 1.8rem;
 }
+
+.button.buynow {
+    width: 100%;
+    margin-bottom: 10%;
+}
+
+.catalog-category-view .product.actions.product-item-actions {
+    margin: 0px;
+}

@@ -3,11 +3,14 @@
     <default>
         <buynow>
             <general>
-                <cartproducts>0</cartproducts>
-                <enableonlist>0</enableonlist>
-                <enableonview>1</enableonview>
-                <addtocartid>product_addtocart_form</addtocartid>
-                <buttontitle>Buy Now</buttontitle>
+                <keep_cart_products>0</keep_cart_products>
+                <enable_list>1</enable_list>
+                <enable_view>1</enable_view>
+                <enable_search>1</enable_search>
+                <enable_advanced_search>1</enable_advanced_search>
+                <enable_related>1</enable_related>
+                <addtocart_id>product_addtocart_form</addtocart_id>
+                <button_title>Buy Now</button_title>
             </general>
         </buynow>
     </default>

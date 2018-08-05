@@ -1,9 +1,9 @@
 <?php $product = $block->getProduct(); ?>
 <?php $helper = $this->helper("Prince\Buynow\Helper\Data"); ?>
-<?php $buttonTitle = $helper->getConfig('buynow/general/buttontitle'); ?>
+<?php $buttonTitle = $helper->getConfig('buynow/general/button_title'); ?>
 <?php if ($product->isSaleable()) : ?>
     <?php $postParams = $block->getAddToCartPostParams($product); ?>
-    <div class="product-item-inner buynow">
+    <div class="buynow-btn">
         <form action="<?php /* @noEscape */ echo $postParams['action']; ?>"
               id="product_addtocart_form_<?php /* @noEscape */ echo $postParams['data']['product']; ?>"
               method="post">
