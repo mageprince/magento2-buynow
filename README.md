@@ -2,6 +2,8 @@
 
 This module add "BuyNow" button on product view page and list page to process directly checkout.
 
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TKAKY4KP65Z4A)
+
 # Installation Instruction
 
 * Copy the content of the repo to the <b>app/code/Prince/Buynow/</b> folder
