@@ -30,3 +30,9 @@
 .catalog-category-view .product.actions.product-item-actions {
     margin: 0px;
 }
+
+@media(max-width: 767px){
+    .catalog-product-view #buy-now{
+        width: 100%;
+    }
+}
