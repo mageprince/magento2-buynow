@@ -10,7 +10,7 @@
         <referenceContainer name="content">
             <referenceBlock name="catalogsearch.product.addto">
                 <block class="Prince\Buynow\Block\Product\ListProduct"
-                       ifconfig="buynow/general/enable_search"
+                       ifconfig="buynow/general/enable_advanced_search"
                        name="product.buynow.search"
                        before="-" template="Prince_Buynow::buynow-list.phtml"/>
             </referenceBlock>

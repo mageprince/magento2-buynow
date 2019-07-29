@@ -25,11 +25,11 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="enable_search" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Enable On View Page</label>
+                    <label>Enable On Search Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="enable_advanced_search" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Enable On View Page</label>
+                    <label>Enable On Advanced Search Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="enable_related" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -42,6 +42,12 @@
                 <field id="addtocart_id" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Addtocart form Id</label>
                     <comment>Enter addtocart form id for product view page(Ex. product_addtocart_form)</comment>
+                </field>
+            </group>
+            <group id="info" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>BuyNow Button Code</label>
+                <field id="additional_note" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1">
+                    <frontend_model>Prince\Buynow\Block\Adminhtml\System\Config\Field\AdditionalInfo</frontend_model>
                 </field>
             </group>
         </section>
