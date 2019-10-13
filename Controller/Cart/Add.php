@@ -43,10 +43,13 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
         }
 
         $params = $this->getRequest()->getParams();
+
         try {
             if (isset($params['qty'])) {
                 $filter = new \Zend_Filter_LocalizedToNormalized(
-                    ['locale' => $this->_objectManager->get('Magento\Framework\Locale\ResolverInterface')->getLocale()]
+                    ['locale' => $this->_objectManager->get(
+                        \Magento\Framework\Locale\ResolverInterface::class
+                    )->getLocale()]
                 );
                 $params['qty'] = $filter->filter($params['qty']);
             }
@@ -58,8 +61,8 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
                 return $this->goBack();
             }
 
-            $cartProducts = $this->_objectManager->create('Prince\Buynow\Helper\Data')
-                             ->getConfig('buynow/general/keep_cart_products');
+            $buyNowHelper = $this->_objectManager->create(\Prince\Buynow\Helper\Data::class);
+            $cartProducts = $buyNowHelper->keepCartProducts();
             if (!$cartProducts) {
                 $this->cart->truncate(); //remove all products from cart
             } 
@@ -70,14 +73,17 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
             }
 
             $this->cart->save();
+
+            /**
+             * @todo remove wishlist observer \Magento\Wishlist\Observer\AddToCart
+             */
             $this->_eventManager->dispatch(
                 'checkout_cart_add_product_complete',
                 ['product' => $product, 'request' => $this->getRequest(), 'response' => $this->getResponse()]
             );
 
             if (!$this->_checkoutSession->getNoCartRedirect(true)) {
-                $baseUrl = $this->_objectManager->get('\Magento\Store\Model\StoreManagerInterface')
-                            ->getStore()->getBaseUrl();
+                $baseUrl = $buyNowHelper->getBaseUrl();
                 return $this->goBack($baseUrl.'checkout/', $product);
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {

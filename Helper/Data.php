@@ -51,6 +51,11 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     const ADDTOCART_FORM_ID = 'product_addtocart_form';
 
     /**
+     * Keep cart products path
+     */
+    const KEEP_CART_PRODUCTS_PATH = 'buynow/general/keep_cart_products';
+
+    /**
      * Retrieve config value
      *
      * @return string
@@ -81,5 +86,19 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $addToCartFormId = $this->getConfig(self::ADDTOCART_FORM_ID_PATH);
         return $addToCartFormId ? $addToCartFormId : self::ADDTOCART_FORM_ID;
+    }
+
+    /**
+     * Check if keep cart products
+     * @return string
+     */
+    public function keepCartProducts()
+    {
+        return $this->getConfig(self::KEEP_CART_PRODUCTS_PATH);
+    }
+
+    public function getBaseUrl()
+    {
+        return $this->_urlBuilder->getBaseUrl();
     }
 }
