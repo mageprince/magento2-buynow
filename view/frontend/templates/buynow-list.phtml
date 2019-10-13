@@ -1,6 +1,6 @@
 <?php $product = $block->getProduct(); ?>
 <?php $helper = $this->helper("Prince\Buynow\Helper\Data"); ?>
-<?php $buttonTitle = $helper->getConfig('buynow/general/button_title'); ?>
+<?php $buttonTitle = $helper->getButtonTitle() ?>
 <?php if ($product->isSaleable()) : ?>
     <?php $postParams = $block->getAddToCartPostParams($product); ?>
     <div class="buynow-btn">
@@ -20,7 +20,7 @@
                     data-mage-init='
                     {
                         "Prince_Buynow/js/buy-now": {
-                            "form": "#product_addtocart_form_<?php echo $postParams['data']['product']; ?>"
+                            "form": "#product_addtocart_form_<?php echo $postParams['data']['product']; ?>",
                         }
                     }
                 '>
