@@ -1,4 +1,15 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * MagePrince
+ * Copyright (C) 2020 Mageprince <info@mageprince.com>
+ *
+ * @package Mageprince_BuyNow
+ * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MagePrince <info@mageprince.com>
+ */
+ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <tab id="mageprince" translate="label" sortOrder="110">
@@ -8,7 +19,7 @@
             <class>separator-top</class>
             <label>Buy Now</label>
             <tab>mageprince</tab>
-            <resource>Prince_Buynow::config</resource>
+            <resource>Mageprince_BuyNow::config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Configuration</label>
                 <field id="keep_cart_products" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -47,7 +58,7 @@
             <group id="info" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>BuyNow Button Code</label>
                 <field id="additional_note" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1">
-                    <frontend_model>Prince\Buynow\Block\Adminhtml\System\Config\Field\AdditionalInfo</frontend_model>
+                    <frontend_model>Mageprince\BuyNow\Block\Adminhtml\System\Config\Field\AdditionalInfo</frontend_model>
                 </field>
             </group>
         </section>

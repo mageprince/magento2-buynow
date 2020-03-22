@@ -1,10 +1,21 @@
-<?php $helper = $this->helper("Prince\Buynow\Helper\Data"); ?>
+<?php
+/**
+ * MagePrince
+ * Copyright (C) 2020 Mageprince <info@mageprince.com>
+ *
+ * @package Mageprince_BuyNow
+ * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MagePrince <info@mageprince.com>
+ */
+?>
+<?php $helper = $this->helper("Mageprince\BuyNow\Helper\Data"); ?>
 <?php $formId = $helper->getAddToCartFormId(); ?>
 <?php $buttonTitle = $helper->getButtonTitle() ?>
 <div class="buynow-button">
     <button type="submit" title="<?php /* @escapeNotVerified */ echo __($buttonTitle) ?>" id="buy-now" class="action primary" data-mage-init='
     {
-        "Prince_Buynow/js/buy-now": {
+        "Mageprince_BuyNow/js/buy-now": {
             "form": "#<?php echo $formId; ?>"
         }
     }

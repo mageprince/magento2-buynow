@@ -1,18 +1,23 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * MagePrince
+ * Copyright (C) 2020 Mageprince <info@mageprince.com>
+ *
+ * @package Mageprince_BuyNow
+ * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MagePrince <info@mageprince.com>
  */
--->
+ -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
             <referenceBlock name="catalogsearch.product.addto">
-                <block class="Prince\Buynow\Block\Product\ListProduct"
+                <block class="Mageprince\BuyNow\Block\Product\ListProduct"
                        ifconfig="buynow/general/enable_search"
                        name="product.buynow.advanced.search"
-                       before="-" template="Prince_Buynow::buynow-list.phtml"/>
+                       before="-" template="Mageprince_BuyNow::buynow-list.phtml"/>
             </referenceBlock>
         </referenceContainer>
     </body>

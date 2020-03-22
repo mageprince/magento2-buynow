@@ -8,7 +8,7 @@ Please donate if you enjoy my extension.
 
 # Installation Instruction
 
-* Copy the content of the repo to the <b>app/code/Prince/Buynow/</b> folder
+* Copy the content of the repo to the <b>app/code/Mageprince\BuyNow/</b> folder
 * Run command:
 <b>php bin/magento setup:upgrade</b>
 * Run Command:

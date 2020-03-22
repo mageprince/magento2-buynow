@@ -1,5 +1,16 @@
+<?php
+/**
+ * MagePrince
+ * Copyright (C) 2020 Mageprince <info@mageprince.com>
+ *
+ * @package Mageprince_BuyNow
+ * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MagePrince <info@mageprince.com>
+ */
+?>
 <?php $product = $block->getProduct(); ?>
-<?php $helper = $this->helper("Prince\Buynow\Helper\Data"); ?>
+<?php $helper = $this->helper("Mageprince\BuyNow\Helper\Data"); ?>
 <?php $buttonTitle = $helper->getButtonTitle() ?>
 <?php if ($product->isSaleable()) : ?>
     <?php $postParams = $block->getAddToCartPostParams($product); ?>
@@ -19,7 +30,7 @@
                     class="action tocart buynow primary"
                     data-mage-init='
                     {
-                        "Prince_Buynow/js/buy-now": {
+                        "Mageprince_BuyNow/js/buy-now": {
                             "form": "#product_addtocart_form_<?php echo $postParams['data']['product']; ?>"
                         }
                     }
