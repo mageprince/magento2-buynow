@@ -11,9 +11,6 @@
  */
  -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <css src="Mageprince_BuyNow::css/buynow.css"/>
-    </head>
     <body>
         <referenceBlock name="category.product.addto">
             <block class="Mageprince\BuyNow\Block\Product\ListProduct"
