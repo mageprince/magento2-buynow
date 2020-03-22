@@ -2,6 +2,8 @@
 
 This module add "BuyNow" button on product view page and list page to process directly checkout.
 
+BuyNow Configuration: Stores->Configuration->MagePrince->Buy Now
+
 # Notice
 
 <b>We don't support Buy Now button on related, upsell, wishlist or any other places because it needs override core phtml files which is not the recommended solution. Please keep in note that most of the paid or free version of the Buy Now module overrides the core phtml files.</b>
