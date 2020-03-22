@@ -13,13 +13,17 @@
 <?php $formId = $helper->getAddToCartFormId(); ?>
 <?php $buttonTitle = $helper->getButtonTitle() ?>
 <div class="buynow-button">
-    <button type="submit" title="<?php /* @escapeNotVerified */ echo __($buttonTitle) ?>" id="buy-now" class="action primary" data-mage-init='
-    {
-        "Mageprince_BuyNow/js/buy-now": {
-            "form": "#<?php echo $formId; ?>"
-        }
-    }
-    '>
-        <span><?php /* @escapeNotVerified */ echo __($buttonTitle) ?></span>
+    <button type="submit"
+            title="<?= /* @escapeNotVerified */ __($buttonTitle) ?>"
+            id="buy-now"
+            class="action tocart primary"
+            data-mage-init='
+            {
+                "Mageprince_BuyNow/js/buy-now": {
+                    "form": "#<?php echo $formId; ?>"
+                }
+            }
+            '>
+        <span><?= /* @escapeNotVerified */ __($buttonTitle) ?></span>
     </button>
 </div>

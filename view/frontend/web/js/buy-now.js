@@ -10,21 +10,8 @@ define([
                 buyNowCartUrl = 'buynow/cart/add',
                 buyNowUrl = baseUrl.replace(addToCartUrl, buyNowCartUrl);
             form.attr('action', buyNowUrl);
-            if(form.valid()) {
-                $.ajax({
-                    type: form.attr('method'),
-                    url: form.attr('action'),
-                    data: form.serialize(),
-                    success: function (data) {
-                        form.attr('action', baseUrl);
-                        if (data.hasOwnProperty('backUrl')) {
-                            window.location.href = data.backUrl;
-                        } else {
-                            window.location.reload(true);
-                        }
-                    }
-                });
-            }
+            form.trigger('submit');
+            form.attr('action', baseUrl);
             return false;
         });
     }
