@@ -2,9 +2,15 @@
 
 This module add "BuyNow" button on product view page and list page to process directly checkout.
 
+BuyNow Configuration: Stores->Configuration->MagePrince->Buy Now
+
+# Notice
+
+<b>We don't support Buy Now button on related, upsell, wishlist or any other places because it needs override core phtml files which is not the recommended solution. Please keep in note that most of the paid or free version of the Buy Now module overrides the core phtml files.</b>
+
 # Installation Instruction
 
-* Copy the content of the repo to the <b>app/code/Mageprince\BuyNow/</b> folder
+* Copy the content of the repo to the <b>app/code/Mageprince/BuyNow</b> folder
 * Run command:
 <b>php bin/magento setup:upgrade</b>
 * Run Command:
@@ -27,11 +33,7 @@ If you encounter any problems or bugs, please <a href="https://github.com/magepr
 
 <img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/BuyNow/viewpage.png" alt="list page" border="0" />
 
-<b>Store->Configuration->Mageprince->Buy Now->Settings</b>
-
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/BuyNow/admin-settings.png" alt="config settings" border="0" />
-
-# How To Find Addtocart Form Id
+# How To Find Addtocart Form Id - Useful For Custom Theme
 
 Go to product view page and right click on addtocart button and click on inspect element. Then scroll up and find addtocart form id.
 
