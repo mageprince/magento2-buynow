@@ -80,9 +80,4 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         return $this->getConfig(self::KEEP_CART_PRODUCTS_PATH);
     }
-
-    public function getBaseUrl()
-    {
-        return $this->_urlBuilder->getBaseUrl();
-    }
 }

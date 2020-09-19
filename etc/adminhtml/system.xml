@@ -48,7 +48,12 @@
                 </field>
                 <field id="addtocart_id" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Addtocart form Id</label>
-                    <comment>Enter addtocart form id for product view page(Ex. product_addtocart_form)</comment>
+                    <comment>Enter addtocart form id for product view page(Ex. product_addtocart_form). Check readme for more details.</comment>
+                </field>
+                <field id="custom_buynow_button_code" type="textarea" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1">
+                    <frontend_model>Mageprince\BuyNow\Block\Adminhtml\System\Config\Field\Disable</frontend_model>
+                    <label>Custom Buy Now Button Code</label>
+                    <comment><![CDATA[Change <b>$_item</b>  to current product object. This code generates buy now button with new form so make sure don't copy this code into any other form.]]></comment>
                 </field>
             </group>
         </section>

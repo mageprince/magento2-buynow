@@ -10,7 +10,7 @@
  * @author MagePrince <info@mageprince.com>
  */
 
-namespace Mageprince\Buynow\Controller\Cart;
+namespace Mageprince\BuyNow\Controller\Cart;
 
 class Add extends \Magento\Checkout\Controller\Cart\Add
 {
@@ -23,6 +23,9 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
     public function execute()
     {
         if (!$this->_formKeyValidator->validate($this->getRequest())) {
+            $this->messageManager->addErrorMessage(
+                __('Your session has expired')
+            );
             return $this->resultRedirectFactory->create()->setPath('*/*/');
         }
 
@@ -41,6 +44,9 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
             $product = $this->_initProduct();
             $related = $this->getRequest()->getParam('related_product');
 
+            /**
+             * Check product availability
+             */
             if (!$product) {
                 return $this->goBack();
             }
@@ -49,7 +55,7 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
             $cartProducts = $buyNowHelper->keepCartProducts();
             if (!$cartProducts) {
                 $this->cart->truncate(); //remove all products from cart
-            } 
+            }
 
             $this->cart->addProduct($product, $params);
             if (!empty($related)) {
@@ -67,31 +73,31 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
             );
 
             if (!$this->_checkoutSession->getNoCartRedirect(true)) {
-                $baseUrl = $buyNowHelper->getBaseUrl();
-                return $this->goBack($baseUrl.'checkout/', $product);
+                $baseUrl = $this->_url->getBaseUrl();
+                return $this->goBack($baseUrl . 'checkout/', $product);
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             if ($this->_checkoutSession->getUseNotice(true)) {
-                $this->messageManager->addNotice(
-                    $this->_objectManager->get('Magento\Framework\Escaper')->escapeHtml($e->getMessage())
+                $this->messageManager->addNoticeMessage(
+                    $this->_objectManager->get(\Magento\Framework\Escaper::class)->escapeHtml($e->getMessage())
                 );
             } else {
                 $messages = array_unique(explode("\n", $e->getMessage()));
                 foreach ($messages as $message) {
-                    $this->messageManager->addError(
-                        $this->_objectManager->get('Magento\Framework\Escaper')->escapeHtml($message)
+                    $this->messageManager->addErrorMessage(
+                        $this->_objectManager->get(\Magento\Framework\Escaper::class)->escapeHtml($message)
                     );
                 }
             }
             $url = $this->_checkoutSession->getRedirectUrl(true);
             if (!$url) {
-                $cartUrl = $this->_objectManager->get('Magento\Checkout\Helper\Cart')->getCartUrl();
+                $cartUrl = $this->_objectManager->get(\Magento\Checkout\Helper\Cart::class)->getCartUrl();
                 $url = $this->_redirect->getRedirectUrl($cartUrl);
             }
             return $this->goBack($url);
         } catch (\Exception $e) {
             $this->messageManager->addException($e, __('We can\'t add this item to your shopping cart right now.'));
-            $this->_objectManager->get('Psr\Log\LoggerInterface')->critical($e);
+            $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
             return $this->goBack();
         }
     }
