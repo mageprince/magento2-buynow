@@ -8,6 +8,23 @@ BuyNow Configuration: Stores->Configuration->MagePrince->Buy Now
 
 <b>We don't support Buy Now button on related, upsell, wishlist or any other places because it needs override core phtml files which is not the recommended solution. Please keep in note that most of the paid or free version of the Buy Now module overrides the core phtml files.</b>
 
+# Copy below code to add Buy Now button in custom product sliders, widget, static blocks etc.
+
+``````
+$buyNowHtml = $this->getLayout()
+    ->createBlock('Mageprince\BuyNow\Block\Product\ListProduct')
+    ->setProduct($_item)
+    ->setTemplate('Mageprince_BuyNow::buynow-list.phtml')
+    ->toHtml();
+echo $buyNowHtml;
+``````
+<b>Change `$_item` to current product object.</b>
+
+You can use above code where you want to show buy now button in product. Please make sure don't copy this code to addtocart or any other form. Put this code after any `</form>`. Here is the screenshot of sample code of usage
+
+<img src="https://user-images.githubusercontent.com/24751863/93671613-00aa9480-fac2-11ea-833b-5bd2c1d2a2fb.png" width="500"/>
+
+
 # Installation Instruction
 
 * Copy the content of the repo to the <b>app/code/Mageprince/BuyNow</b> folder
