@@ -11,7 +11,6 @@
 ?>
 <?php
 /** @var \Mageprince\BuyNow\Block\Product\ListProduct $block */
-/** @var $escaper \Magento\Framework\Escaper */
 $product = $block->getProduct();
 ?>
 <?php $helper = $this->helper(\Mageprince\BuyNow\Helper\Data::class); ?>
@@ -19,7 +18,7 @@ $product = $block->getProduct();
 <?php if ($product->isSaleable()): ?>
     <?php $postParams = $block->getAddToCartPostParams($product); ?>
     <div class="buynow-btn">
-        <form action="<?= $escaper->escapeUrl($postParams['action']); ?>"
+        <form action="<?= $block->escapeUrl($postParams['action']); ?>"
               id="product_addtocart_form_<?= /* @noEscape */ $postParams['data']['product']; ?>"
               method="post">
             <input type="hidden"
@@ -30,16 +29,16 @@ $product = $block->getProduct();
                    value="<?= /* @noEscape */ $postParams['data']['uenc']; ?>">
             <?= $block->getBlockHtml('formkey') ?>
             <button type="submit"
-                    title="<?= $escaper->escapeHtml(__($buttonTitle)) ?>"
+                    title="<?= $block->escapeHtml(__($buttonTitle)) ?>"
                     class="action tocart buynow primary"
                     data-mage-init='
                     {
                         "Mageprince_BuyNow/js/buy-now": {
-                            "form": "#product_addtocart_form_<?= $escaper->escapeHtml($postParams['data']['product']) ?>"
+                            "form": "#product_addtocart_form_<?= $block->escapeHtml($postParams['data']['product']) ?>"
                         }
                     }
                 '>
-                <span><?= $escaper->escapeHtml(__($buttonTitle)) ?></span>
+                <span><?= $block->escapeHtml(__($buttonTitle)) ?></span>
             </button>
         </form>
     </div>

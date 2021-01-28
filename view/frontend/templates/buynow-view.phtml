@@ -8,23 +8,23 @@
  * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
  * @author MagePrince <info@mageprince.com>
  */
-/** @var $escaper \Magento\Framework\Escaper */
 ?>
+<?php /** @var \Magento\Catalog\Block\Product\View $block */ ?>
 <?php $helper = $this->helper(\Mageprince\BuyNow\Helper\Data::class); ?>
 <?php $formId = $helper->getAddToCartFormId(); ?>
 <?php $buttonTitle = $helper->getButtonTitle() ?>
 <div class="buynow-button">
     <button type="submit"
-            title="<?= $escaper->escapeHtml(__($buttonTitle)) ?>"
+            title="<?= $block->escapeHtml(__($buttonTitle)) ?>"
             id="buy-now"
             class="action primary buy-now-btn"
             data-mage-init='
             {
                 "Mageprince_BuyNow/js/buy-now": {
-                    "form": "#<?= $escaper->escapeHtml($formId); ?>"
+                    "form": "#<?= $block->escapeHtml($formId); ?>"
                 }
             }
             '>
-        <span><?= $escaper->escapeHtml(__($buttonTitle)) ?></span>
+        <span><?= $block->escapeHtml(__($buttonTitle)) ?></span>
     </button>
 </div>
