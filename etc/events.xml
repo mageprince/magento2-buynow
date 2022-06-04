@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MagePrince
+ * Copyright (C) 2020 Mageprince <info@mageprince.com>
+ *
+ * @package Mageprince_BuyNow
+ * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MagePrince <info@mageprince.com>
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+   <event name="checkout_product_merge_custom">
+       <observer name="add_remaining_products" instance="Mageprince\BuyNow\Observer\AddRemainingProduct" />
+   </event>
+   <event name="checkout_cart_add_product_complete">
+      <observer name="after_add_to_cart_remove_buy_now" instance="Mageprince\BuyNow\Observer\RemoveBuyNowVal" />
+   </event>
+</config>
