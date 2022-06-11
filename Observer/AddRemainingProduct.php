@@ -41,7 +41,6 @@ class AddRemainingProduct implements \Magento\Framework\Event\ObserverInterface
             $quoteData->load($order->getQuoteId());
             if ($quoteData->hasData()) {
                 if ($quoteData->getBuyNowId()) {
-                    $order = $observer->getEvent()->getOrder();
                     if ($quoteData->getCustomerId()) {
                         $customerRepoData = $this->customerRepository->getById($quoteData->getCustomerId());
                         $quoteDataReplace = $this->quoteFactory->create();
