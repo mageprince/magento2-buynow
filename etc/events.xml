@@ -11,10 +11,13 @@
  */
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-   <event name="checkout_product_merge_custom">
-       <observer name="add_remaining_products" instance="Mageprince\BuyNow\Observer\AddRemainingProduct" />
-   </event>
    <event name="checkout_cart_add_product_complete">
       <observer name="after_add_to_cart_remove_buy_now" instance="Mageprince\BuyNow\Observer\RemoveBuyNowVal" />
    </event>
+   <event name="checkout_onepage_controller_success_action">
+        <observer name="add_remaining_products_checkout_page" instance="Mageprince\BuyNow\Observer\AddRemainingProduct"  />
+   </event>
+   <event name="multishipping_checkout_controller_success_action">
+        <observer name="add_remaining_products_multishipping_checkout" instance="Mageprince\BuyNow\Observer\AddRemainingProduct"  />
+    </event>
 </config>

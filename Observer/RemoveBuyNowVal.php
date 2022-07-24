@@ -13,25 +13,26 @@
 namespace Mageprince\BuyNow\Observer;
 
 use Magento\Checkout\Model\Cart as CustomerCart;
+use Magento\Framework\Event\Observer;
+use Magento\Framework\Event\ObserverInterface;
 
-class RemoveBuyNowVal implements \Magento\Framework\Event\ObserverInterface
+class RemoveBuyNowVal implements ObserverInterface
 {
     /**
-     * @param \Magento\Quote\Model\QuoteFactory $quoteFactory
-     * @param \Magento\Customer\Api\CustomerRepositoryInterface $customerRepository
+     * @var CustomerCart
+     */
+    protected $cart;
+
+    /**
      * @param CustomerCart $cart
      */
     public function __construct(
-        \Magento\Quote\Model\QuoteFactory $quoteFactory,
-        \Magento\Customer\Api\CustomerRepositoryInterface $customerRepository,
         CustomerCart $cart
     ) {
-        $this->quoteFactory = $quoteFactory;
-        $this->customerRepository = $customerRepository;
         $this->cart = $cart;
     }
 
-    public function execute(\Magento\Framework\Event\Observer $observer)
+    public function execute(Observer $observer)
     {
         if ($this->cart->getQuote()->getItemsCount() > 1) {
             $this->cart->getQuote()->setBuyNowId(0);

@@ -40,6 +40,11 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     const KEEP_CART_PRODUCTS_PATH = 'buynow/general/keep_cart_products';
 
     /**
+     * Restore cart products path
+     */
+    const RESTORE_CART_PRODUCTS_PATH = 'buynow/general/restore_cart_products';
+
+    /**
      * Retrieve config value
      *
      * @return string
@@ -79,5 +84,14 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function keepCartProducts()
     {
         return $this->getConfig(self::KEEP_CART_PRODUCTS_PATH);
+    }
+
+    /**
+     * Check if restore cart products
+     * @return string
+     */
+    public function restoreCartProducts()
+    {
+        return $this->getConfig(self::RESTORE_CART_PRODUCTS_PATH);
     }
 }
