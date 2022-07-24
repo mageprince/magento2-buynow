@@ -15,6 +15,7 @@
         <buynow>
             <general>
                 <keep_cart_products>1</keep_cart_products>
+                <restore_cart_products>0</restore_cart_products>
                 <enable_list>1</enable_list>
                 <enable_view>1</enable_view>
                 <enable_search>1</enable_search>

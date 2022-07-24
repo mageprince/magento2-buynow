@@ -15,4 +15,10 @@
     <action name="buynow/cart/add">
         <section name="cart"/>
     </action>
+    <action name="checkout/onepage/success">
+        <section name="cart"/>
+    </action>
+    <action name="multishipping/checkout/success">
+        <section name="cart"/>
+    </action>
 </config>

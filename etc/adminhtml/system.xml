@@ -22,35 +22,43 @@
             <resource>Mageprince_BuyNow::config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Configuration</label>
-                <field id="keep_cart_products" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="keep_cart_products" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1" >
                     <label>Keep Cart's Products</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Keep Other Cart Item(s) When Click Buy Now</comment>
                 </field>
-                <field id="enable_list" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="restore_cart_products" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1" >
+                    <label>Restore Cart Item(s)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="buynow/general/keep_cart_products">0</field>
+                    </depends>
+                    <comment>Restore Other Cart Item(s) When Place Order</comment>
+                </field>
+                <field id="enable_list" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1" >
                     <label>Enable On List Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="enable_view" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="enable_view" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1"  >
                     <label>Enable On View Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="enable_search" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="enable_search" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1"  >
                     <label>Enable On Search Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="enable_advanced_search" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="enable_advanced_search" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1" >
                     <label>Enable On Advanced Search Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="button_title" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="button_title" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1" >
                     <label>Button Title</label>
                 </field>
-                <field id="addtocart_id" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="addtocart_id" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1"  >
                     <label>Addtocart form Id</label>
                     <comment>Enter addtocart form id for product view page(Ex. product_addtocart_form). Check readme for more details.</comment>
                 </field>
-                <field id="custom_buynow_button_code" type="textarea" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1">
+                <field id="custom_buynow_button_code" type="textarea" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" canRestore="1" >
                     <frontend_model>Mageprince\BuyNow\Block\Adminhtml\System\Config\Field\Disable</frontend_model>
                     <label>Custom Buy Now Button Code</label>
                     <comment><![CDATA[Change <b>$_item</b>  to current product object. This code generates buy now button with new form so make sure don't copy this code into any other form.]]></comment>
