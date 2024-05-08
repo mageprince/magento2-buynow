@@ -2,47 +2,43 @@
 
 /**
  * MagePrince
- * Copyright (C) 2020 Mageprince <info@mageprince.com>
  *
- * @package Mageprince_BuyNow
- * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
- * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
- * @author MagePrince <info@mageprince.com>
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
  */
 
 namespace Mageprince\BuyNow\Helper;
 
-class Data extends \Magento\Framework\App\Helper\AbstractHelper
+use Magento\Framework\App\Helper\AbstractHelper;
+
+class Data extends AbstractHelper
 {
     /**
-     * Buynow button title path
+     * Buynow config paths
      */
-    const BUYNOW_BUTTON_TITLE_PATH = 'buynow/general/button_title';
-
-    /**
-     * Buynow button title
-     */
-    const BUYNOW_BUTTON_TITLE = 'Buy Now';
-
-    /**
-     * Addtocart button form id path
-     */
-    const ADDTOCART_FORM_ID_PATH = 'buynow/general/addtocart_id';
-
-    /**
-     * Addtocart button form id
-     */
-    const ADDTOCART_FORM_ID = 'product_addtocart_form';
-
-    /**
-     * Keep cart products path
-     */
-    const KEEP_CART_PRODUCTS_PATH = 'buynow/general/keep_cart_products';
+    public const BUYNOW_BUTTON_TITLE_PATH = 'buynow/general/button_title';
+    public const ADDTOCART_FORM_ID_PATH = 'buynow/general/addtocart_id';
+    public const ADDTOCART_FORM_ID = 'product_addtocart_form';
+    public const KEEP_CART_PRODUCTS_PATH = 'buynow/general/keep_cart_products';
 
     /**
      * Retrieve config value
      *
-     * @return string
+     * @param string $config
+     * @return mixed
      */
     public function getConfig($config)
     {
@@ -53,27 +49,29 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
 
     /**
-     * Get button title
+     * Retrieve button title
+     *
      * @return string
      */
     public function getButtonTitle()
     {
-        $btnTitle = $this->getConfig(self::BUYNOW_BUTTON_TITLE_PATH);
-        return $btnTitle ? $btnTitle : self::BUYNOW_BUTTON_TITLE;
+        return $this->getConfig(self::BUYNOW_BUTTON_TITLE_PATH);
     }
 
     /**
-     * Get addtocart form id
+     * Retrieve addtocart form id
+     *
      * @return string
      */
     public function getAddToCartFormId()
     {
         $addToCartFormId = $this->getConfig(self::ADDTOCART_FORM_ID_PATH);
-        return $addToCartFormId ? $addToCartFormId : self::ADDTOCART_FORM_ID;
+        return $addToCartFormId ?: self::ADDTOCART_FORM_ID;
     }
 
     /**
      * Check if keep cart products
+     *
      * @return string
      */
     public function keepCartProducts()

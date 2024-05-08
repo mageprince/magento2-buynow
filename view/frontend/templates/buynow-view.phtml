@@ -1,26 +1,40 @@
 <?php
 /**
  * MagePrince
- * Copyright (C) 2020 Mageprince <info@mageprince.com>
  *
- * @package Mageprince_BuyNow
- * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
- * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
- * @author MagePrince <info@mageprince.com>
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
  */
 ?>
-<?php /** @var \Magento\Catalog\Block\Product\View $block */ ?>
-<?php $helper = $this->helper(\Mageprince\BuyNow\Helper\Data::class); ?>
-<?php $formId = $helper->getAddToCartFormId(); ?>
-<?php $buttonTitle = $helper->getButtonTitle() ?>
-<div class="buynow-button">
+<?php
+/**
+ * @var \Magento\Catalog\Block\Product\View $block
+ * @var \Mageprince\BuyNow\ViewModel\BuyNow $viewModel
+ */
+$viewModel = $block->getViewModel();
+$buttonTitle = $viewModel->getButtonTitle();
+$formId = $viewModel->getAddToCartFormId();
+?>
+<div class="mageprince-buynow">
     <button type="submit"
             title="<?= $block->escapeHtml(__($buttonTitle)) ?>"
-            id="buy-now"
-            class="action primary buy-now-btn"
+            class="action primary mageprince-buy-now-btn"
             data-mage-init='
             {
-                "Mageprince_BuyNow/js/buy-now": {
+                "Mageprince_BuyNow/js/buy-now-view": {
                     "form": "#<?= $block->escapeHtml($formId); ?>"
                 }
             }

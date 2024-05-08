@@ -1,0 +1,48 @@
+<?php
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
+ */
+?>
+<?php
+/** @var \Mageprince\BuyNow\Block\Product\ListProduct $block */
+$product = $block->getProduct();
+$helper = $this->helper(\Mageprince\BuyNow\Helper\Data::class);
+$buttonTitle = $helper->getButtonTitle();
+?>
+<?php if ($product->isSaleable()): ?>
+    <?php $postParams = $block->getAddToCartPostParams($product); ?>
+    <div class="mageprince-buynow">
+        <form action="<?= $block->escapeUrl($postParams['action']); ?>"
+              id="product_addtocart_form_<?= /* @noEscape */ $postParams['data']['product']; ?>"
+              method="post">
+            <input type="hidden"
+                   name="product"
+                   value="<?= /* @noEscape */ $postParams['data']['product']; ?>">
+            <input type="hidden"
+                   name="uenc"
+                   value="<?= /* @noEscape */ $postParams['data']['uenc']; ?>">
+            <?= $block->getBlockHtml('formkey') ?>
+            <button type="submit"
+                    title="<?= $block->escapeHtml(__($buttonTitle)) ?>"
+                    class="action tocart primary mageprince-buynow-btn">
+                <span><?= $block->escapeHtml(__($buttonTitle)) ?></span>
+            </button>
+        </form>
+    </div>
+<?php endif; ?>

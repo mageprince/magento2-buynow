@@ -1,25 +1,30 @@
-.catalog-category-view .actions-primary + .actions-secondary {
-  vertical-align: top;
+button.action.primary.mageprince-buynow-btn-list {
+    border-radius: 0;
+    font-size: 1.3rem;
+    line-height: 1;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    white-space: nowrap;
 }
 
-.catalog-category-view button.buynow {
-  margin-left: 5px;
+.catalog-product-view {
+    .mageprince-buynow {
+        display: inline;
+        .mageprince-buy-now-btn {
+            font-size: 1.8rem;
+            line-height: 2.2rem;
+            padding: 14px 17px;
+            width: 49%;
+        }
+    }
 }
 
-.catalog-product-view #product-addtocart-button {
-  float: left;
+@media (max-width: 767px) {
+    .catalog-product-view {
+        .mageprince-buynow {
+            .mageprince-buy-now-btn {
+                width: 100%;
+            }
+        }
+    }
 }
-
-.buy-now-btn {
-    margin-right: 1%;
-    width: 49%;
-    line-height: 3.6rem;
-}
-
-@media(max-width: 767px){
-  .catalog-category-view button.buynow{
-    margin-top: 5px;
-    margin-left: 0px;
-  }
-}
-

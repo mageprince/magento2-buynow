@@ -2,12 +2,22 @@
 <!--
 /**
  * MagePrince
- * Copyright (C) 2020 Mageprince <info@mageprince.com>
  *
- * @package Mageprince_BuyNow
- * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
- * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
- * @author MagePrince <info@mageprince.com>
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
  */
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
@@ -22,38 +32,39 @@
             <resource>Mageprince_BuyNow::config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Configuration</label>
-                <field id="keep_cart_products" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Keep Cart's Products</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <comment>Keep Other Cart Item(s) When Click Buy Now</comment>
-                </field>
-                <field id="enable_list" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="enable_list" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable On List Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="enable_view" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="enable_view" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable On View Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="enable_search" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="enable_search" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable On Search Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="enable_advanced_search" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="enable_advanced_search" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable On Advanced Search Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="button_title" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="button_title" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Button Title</label>
+                    <validate>required-entry</validate>
                 </field>
-                <field id="addtocart_id" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="keep_cart_products" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Keep Cart's Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Keep other item(s) in the cart on buy now.</comment>
+                </field>
+                <field id="addtocart_id" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Addtocart form Id</label>
-                    <comment>Enter addtocart form id for product view page(Ex. product_addtocart_form). Check readme for more details.</comment>
+                    <comment>Enter addtocart form ID for the product view page (e.g. product_addtocart_form). This is specifically for custom themes. For further information, refer to the readme file.</comment>
                 </field>
-                <field id="custom_buynow_button_code" type="textarea" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1">
+                <field id="custom_buynow_button_code" type="textarea" translate="label" sortOrder="80" showInDefault="1" showInWebsite="1">
                     <frontend_model>Mageprince\BuyNow\Block\Adminhtml\System\Config\Field\Disable</frontend_model>
                     <label>Custom Buy Now Button Code</label>
-                    <comment><![CDATA[Change <b>$_item</b>  to current product object. This code generates buy now button with new form so make sure don't copy this code into any other form.]]></comment>
+                    <comment><![CDATA[Paste this code into your custom product listing template file wherever you want to display the "Buy Now" button. Replace <b>$_item</b> with the current product object. This code creates a new form for the buy now button, so ensure that you do not insert this code into any other form.]]></comment>
                 </field>
             </group>
         </section>
