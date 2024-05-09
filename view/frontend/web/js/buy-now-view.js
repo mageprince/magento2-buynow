@@ -6,6 +6,7 @@ define([
 
     return function (config, element) {
         $(element).click(function () {
+            $(this).attr('disabled', true);
             var form = $(element.form),
                 baseUrl = form.attr('action'),
                 buyNowUrl = buyNowModel.replaceBuyNowUrl(baseUrl);

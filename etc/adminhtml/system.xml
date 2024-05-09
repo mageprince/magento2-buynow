@@ -57,7 +57,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Keep other item(s) in the cart on buy now.</comment>
                 </field>
-                <field id="custom_buynow_button_code" type="textarea" translate="label" sortOrder="80" showInDefault="1" showInWebsite="1">
+                <field id="custom_buynow_button_code" type="textarea" translate="label" sortOrder="70" showInDefault="1" showInWebsite="1">
                     <frontend_model>Mageprince\BuyNow\Block\Adminhtml\System\Config\Field\Disable</frontend_model>
                     <label>Custom Buy Now Button Code</label>
                     <comment><![CDATA[Paste this code into your custom product listing template file wherever you want to display the "Buy Now" button. Replace <b>$_item</b> with the current product object. This code creates a new form for the buy now button, so ensure that you do not insert this code into any other form.]]></comment>
