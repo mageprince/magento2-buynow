@@ -26,19 +26,12 @@
  */
 $viewModel = $block->getViewModel();
 $buttonTitle = $viewModel->getButtonTitle();
-$formId = $viewModel->getAddToCartFormId();
 ?>
 <div class="mageprince-buynow">
     <button type="submit"
             title="<?= $block->escapeHtml(__($buttonTitle)) ?>"
             class="action primary mageprince-buy-now-btn"
-            data-mage-init='
-            {
-                "Mageprince_BuyNow/js/buy-now-view": {
-                    "form": "#<?= $block->escapeHtml($formId); ?>"
-                }
-            }
-            '>
+            data-mage-init='{"Mageprince_BuyNow/js/buy-now-view": {}}'>
         <span><?= $block->escapeHtml(__($buttonTitle)) ?></span>
     </button>
 </div>

@@ -2,24 +2,31 @@
 
 namespace Mageprince\BuyNow\ViewModel;
 
+use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
-use Mageprince\BuyNow\Helper\Data;
+use Magento\Store\Model\ScopeInterface;
 
 class BuyNow implements ArgumentInterface
 {
     /**
-     * @var Data
+     * Buynow config paths
      */
-    protected $helper;
+    public const BUYNOW_BUTTON_TITLE_PATH = 'buynow/general/button_title';
+    public const KEEP_CART_PRODUCTS_PATH = 'buynow/general/keep_cart_products';
+
+    /**
+     * @var ScopeConfigInterface
+     */
+    protected $scopeConfig;
 
     /**
      * BuyNow constructor.
-     * @param Data $helper
+     * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
-        Data $helper
+        ScopeConfigInterface $scopeConfig
     ) {
-        $this->helper = $helper;
+        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -29,16 +36,22 @@ class BuyNow implements ArgumentInterface
      */
     public function getButtonTitle()
     {
-        return $this->helper->getButtonTitle();
+        return $this->scopeConfig->getValue(
+            self::BUYNOW_BUTTON_TITLE_PATH,
+            ScopeInterface::SCOPE_STORE
+        );
     }
 
     /**
-     * Retrieve form id
+     * Check if keep cart products
      *
      * @return string
      */
-    public function getAddToCartFormId()
+    public function keepCartProducts()
     {
-        return $this->helper->getAddToCartFormId();
+        return $this->scopeConfig->isSetFlag(
+            self::KEEP_CART_PRODUCTS_PATH,
+            ScopeInterface::SCOPE_STORE
+        );
     }
 }

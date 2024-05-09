@@ -29,11 +29,11 @@
                 <enable_view>1</enable_view>
                 <enable_search>1</enable_search>
                 <enable_advanced_search>1</enable_advanced_search>
-                <addtocart_id>product_addtocart_form</addtocart_id>
                 <button_title>Buy Now</button_title>
                 <custom_buynow_button_code><![CDATA[$buyNowBtnHtml = $this->getLayout()
     ->createBlock(\Mageprince\BuyNow\Block\Product\ListProduct::class)
     ->setProduct($_item)
+    ->setButtonTitle('Buy Now')
     ->setTemplate('Mageprince_BuyNow::buynow.phtml')
     ->toHtml();
 echo $buyNowBtnHtml;]]>

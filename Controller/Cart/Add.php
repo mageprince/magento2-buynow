@@ -23,7 +23,7 @@
 namespace Mageprince\BuyNow\Controller\Cart;
 
 use Magento\Framework\Filter\LocalizedToNormalized;
-use Mageprince\BuyNow\Helper\Data as BuyNowHelper;
+use Mageprince\BuyNow\ViewModel\BuyNow as BuyNowViewModel;
 
 class Add extends \Magento\Checkout\Controller\Cart\Add
 {
@@ -64,7 +64,7 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
                 return $this->goBack();
             }
 
-            $buyNowHelper = $this->_objectManager->create(BuyNowHelper::class);
+            $buyNowHelper = $this->_objectManager->create(BuyNowViewModel::class);
             $cartProducts = $buyNowHelper->keepCartProducts();
             if (!$cartProducts) {
                 $this->cart->truncate(); //remove all products from cart

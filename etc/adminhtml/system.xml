@@ -57,10 +57,6 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Keep other item(s) in the cart on buy now.</comment>
                 </field>
-                <field id="addtocart_id" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Addtocart form Id</label>
-                    <comment>Enter addtocart form ID for the product view page (e.g. product_addtocart_form). This is specifically for custom themes. For further information, refer to the readme file.</comment>
-                </field>
                 <field id="custom_buynow_button_code" type="textarea" translate="label" sortOrder="80" showInDefault="1" showInWebsite="1">
                     <frontend_model>Mageprince\BuyNow\Block\Adminhtml\System\Config\Field\Disable</frontend_model>
                     <label>Custom Buy Now Button Code</label>
