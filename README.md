@@ -32,11 +32,12 @@ Copy the content of the repo to the <b>app/code/Mageprince/BuyNow</b> folder and
 
 # Notice
 
-We do not provide support for placing the Buy Now button on related, upsell, wishlist, or any other locations, as it requires overriding core phtml files, which isn't a good idea for an extension.<b>Please be aware that many paid or free versions of the Buy Now module override these core files</b>. Instead, use this piece of code to add the Buy Now button to custom product templates, sliders, widgets, static blocks, etc.
+We do not provide support for placing the Buy Now button on related, upsell, wishlist, or any other locations, as it requires overriding core phtml files, which isn't a good idea for an extension. <b>Please be aware that many paid or free versions of the Buy Now module override these core files</b>. Instead, use this piece of code to add the Buy Now button to custom product templates.
 
     $buyNowBtnHtml = $this->getLayout()
         ->createBlock(\Mageprince\BuyNow\Block\Product\ListProduct::class)
         ->setProduct($_item)
+        ->setButtonTitle('Buy Now')
         ->setTemplate('Mageprince_BuyNow::buynow.phtml')
         ->toHtml();
     echo $buyNowBtnHtml;
@@ -45,7 +46,10 @@ We do not provide support for placing the Buy Now button on related, upsell, wis
 
 You can use the code above to display the Buy Now button wherever you want on your product page. Just remember not to paste this code into the add to cart form or any other form. Put the code after `</form>` tag. Below is a screenshot showing how to use the code.
 
-<img src="https://github.com/mageprince/magento2-buynow/assets/24751863/0646b237-edf6-4677-834e-ec4b9b9c8da6" width="500"/>
+**Sample template:** _vendor/magento/module-catalog/view/frontend/templates/product/list/items.phtml_
+
+<img src="https://github.com/mageprince/magento2-buynow/assets/24751863/5ad4baf6-5897-4ea4-adda-8244126524c3" width="500"/>
+
 
 # Contribution
 
@@ -59,10 +63,15 @@ If you encounter any problems or bugs, please <a href="https://github.com/magepr
 
 ### Product view page
 
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/BuyNow/listpage.png" alt="View Page" border="0">
+<img width="687" alt="Product List Page" src="https://github.com/mageprince/magento2-buynow/assets/24751863/02ca3bcf-76cf-4226-bc57-9618e765abb7">
 
 ### Product list page
 
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/BuyNow/viewpage.png" alt="list page" border="0" />
+<img width="687" alt="Product List Page" src="https://github.com/mageprince/magento2-buynow/assets/24751863/dfb6ac6c-dcde-4103-b0ab-497971763eef">
+
+### Custom product template with buy now code
+
+<img width="687" alt="Custom Product Template" src="https://github.com/mageprince/magento2-buynow/assets/24751863/cce268e2-e2ea-465b-82ca-afc3e0f8d209">
+
 
 
