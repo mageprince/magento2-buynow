@@ -1,14 +1,15 @@
 define([
-    'jquery'
-], function ($) {
-    "use strict";
+    'jquery',
+    'Mageprince_BuyNow/js/model/buy-now'
+], function ($, buyNowModel) {
+    'use strict';
+
     return function (config, element) {
         $(element).click(function () {
-            var form = $(config.form),
+            $(this).attr('disabled', true);
+            var form = $(element.form),
                 baseUrl = form.attr('action'),
-                addToCartUrl = 'checkout/cart/add',
-                buyNowCartUrl = 'buynow/cart/add',
-                buyNowUrl = baseUrl.replace(addToCartUrl, buyNowCartUrl);
+                buyNowUrl = buyNowModel.replaceBuyNowUrl(baseUrl);
             form.attr('action', buyNowUrl);
             form.trigger('submit');
             form.attr('action', baseUrl);

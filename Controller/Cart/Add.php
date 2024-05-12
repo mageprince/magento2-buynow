@@ -2,15 +2,28 @@
 
 /**
  * MagePrince
- * Copyright (C) 2020 Mageprince <info@mageprince.com>
  *
- * @package Mageprince_BuyNow
- * @copyright Copyright (c) 2020 Mageprince (http://www.mageprince.com/)
- * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
- * @author MagePrince <info@mageprince.com>
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
  */
 
 namespace Mageprince\BuyNow\Controller\Cart;
+
+use Magento\Framework\Filter\LocalizedToNormalized;
+use Mageprince\BuyNow\ViewModel\BuyNow as BuyNowViewModel;
 
 class Add extends \Magento\Checkout\Controller\Cart\Add
 {
@@ -33,7 +46,7 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
 
         try {
             if (isset($params['qty'])) {
-                $filter = new \Zend_Filter_LocalizedToNormalized(
+                $filter = new LocalizedToNormalized(
                     ['locale' => $this->_objectManager->get(
                         \Magento\Framework\Locale\ResolverInterface::class
                     )->getLocale()]
@@ -51,7 +64,7 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
                 return $this->goBack();
             }
 
-            $buyNowHelper = $this->_objectManager->create(\Mageprince\BuyNow\Helper\Data::class);
+            $buyNowHelper = $this->_objectManager->create(BuyNowViewModel::class);
             $cartProducts = $buyNowHelper->keepCartProducts();
             if (!$cartProducts) {
                 $this->cart->truncate(); //remove all products from cart
@@ -61,7 +74,6 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
             if (!empty($related)) {
                 $this->cart->addProductsByIds(explode(',', $related));
             }
-
             $this->cart->save();
 
             /**
@@ -96,7 +108,10 @@ class Add extends \Magento\Checkout\Controller\Cart\Add
             }
             return $this->goBack($url);
         } catch (\Exception $e) {
-            $this->messageManager->addException($e, __('We can\'t add this item to your shopping cart right now.'));
+            $this->messageManager->addExceptionMessage(
+                $e,
+                __('We can\'t add this item to your shopping cart right now.')
+            );
             $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
             return $this->goBack();
         }
