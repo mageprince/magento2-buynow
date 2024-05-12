@@ -2,7 +2,7 @@
 [![Total Downloads](https://poser.pugx.org/mageprince/module-buynow/downloads)](//packagist.org/packages/mageprince/module-buynow)
 [![Monthly Downloads](https://poser.pugx.org/mageprince/module-buynow/d/monthly)](//packagist.org/packages/mageprince/module-buynow)
 [![License](https://poser.pugx.org/mageprince/module-buynow/license)](//packagist.org/packages/mageprince/module-buynow)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mageprince/magento2-buynow/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mageprince/magento2-FAQ/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mageprince/magento2-buynow/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mageprince/magento2-buynow/?branch=master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/mageprince/magento2-buynow/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
 # Magento 2 Buy Now 
