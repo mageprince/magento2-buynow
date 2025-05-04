@@ -7,13 +7,13 @@
 
 # Magento 2 Buy Now 
 
-The Buy Now extension for Magento 2 enhances the shopping experience by allowing customers to make instant purchases with a single click. It adds a "Buy Now" button to product pages, enabling customers to bypass the cart and proceed directly to the checkout page.
+The Buy Now extension for Magento 2 streamlines the purchase process by adding a “Buy Now” button on product pages. With a single click, customers can skip the cart and go straight to checkout, making quick purchases faster and more convenient.
 
 Admin Configuration: `Admin > Stores > Configuration > MagePrince > Buy Now`
 
-# How to install
+# 🚀 Installation Instructions
 
-### 1. Install via composer (packagist.org)
+### 1. Install via composer
 
 Run the following command in the Magento 2 root folder:
 
@@ -30,9 +30,13 @@ Copy the content of the repo to the <b>app/code/Mageprince/BuyNow</b> folder and
     php bin/magento setup:di:compile
     php bin/magento setup:static-content:deploy
 
-# Notice
+# ⚠️ Notice
 
-We do not provide support for placing the Buy Now button on related, upsell, wishlist, or any other locations, as it requires overriding core phtml files, which isn't a good idea for an extension. <b>Please be aware that many paid or free versions of the Buy Now module override these core files</b>. Instead, use this piece of code to add the Buy Now button to custom product templates.
+We do not provide support for placing the Buy Now button on related products, upsell blocks, wishlist, or any other custom locations, as this would require overriding Magento core .phtml files — something we strongly advise against in extension development. Many free and paid Buy Now modules override core files, which can lead to maintenance and upgrade issues.
+
+# Add Buy Now in custom template
+
+If you wish to add the button to custom product templates, use following code snippet:
 
     $buyNowBtnHtml = $this->getLayout()
         ->createBlock(\Mageprince\BuyNow\Block\Product\ListProduct::class)
@@ -51,15 +55,15 @@ You can use the code above to display the Buy Now button wherever you want on yo
 <img src="https://github.com/mageprince/magento2-buynow/assets/24751863/5ad4baf6-5897-4ea4-adda-8244126524c3" width="500"/>
 
 
-# Contribution
+# 🤝 Contribution
 
 Want to contribute to this extension? The quickest way is to <a href="https://help.github.com/articles/about-pull-requests/">open a pull request</a> on GitHub.
 
-# Support
+# 🛠 Support
 
 If you encounter any problems or bugs, please <a href="https://github.com/mageprince/magento2-buynow/issues">open an issue</a> on GitHub.
 
-# Screenshots
+# 📸 Screenshots
 
 ### Product view page
 
