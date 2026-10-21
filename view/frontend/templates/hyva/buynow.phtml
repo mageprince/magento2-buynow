@@ -1,0 +1,51 @@
+<?php
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
+ */
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\LucideIcons;
+use Magento\Framework\Escaper;
+use Mageprince\BuyNow\Block\Product\ListProduct;
+
+/** @var ListProduct $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+/** @var LucideIcons $lucideIcons */
+$lucideIcons = $viewModels->require(LucideIcons::class);
+$product = $block->getProduct();
+$buttonTitle = __($block->getButtonTitle());
+?>
+<?php if ($product && $product->isSaleable()): ?>
+    <form method="post"
+          action="<?= $escaper->escapeUrl($block->getBuyNowUrl($product)) ?>"
+          class="mageprince-buynow">
+        <?= $block->getBlockHtml('formkey') ?>
+        <input type="hidden" name="product" value="<?= (int) $product->getId() ?>">
+        <button
+            type="submit"
+            aria-label="<?= $escaper->escapeHtmlAttr($buttonTitle . ' ' . $product->getName()) ?>"
+            class="btn btn-primary mageprince-buynow-btn"
+        >
+            <?= $lucideIcons->zapHtml('', 24, 24, ['aria-hidden' => 'true']) ?>
+            <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
+        </button>
+    </form>
+<?php endif; ?>

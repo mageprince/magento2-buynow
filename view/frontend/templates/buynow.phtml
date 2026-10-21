@@ -22,7 +22,7 @@
 <?php
 /** @var \Mageprince\BuyNow\Block\Product\ListProduct $block */
 $product = $block->getProduct();
-$buttonTitle = $block->getButtonTitle() ?: 'Buy Now';
+$buttonTitle = $block->getButtonTitle();
 ?>
 <?php if ($product->isSaleable()): ?>
     <?php $postParams = $block->getAddToCartPostParams($product); ?>

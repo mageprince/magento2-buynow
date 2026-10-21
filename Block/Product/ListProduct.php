@@ -26,6 +26,7 @@ use Magento\Catalog\Block\Product\Context;
 use Magento\Catalog\Block\Product\ProductList\Item\Block;
 use Magento\Framework\App\ActionInterface;
 use Magento\Framework\Url\Helper\Data as UrlHelper;
+use Mageprince\BuyNow\ViewModel\BuyNow;
 
 class ListProduct extends Block
 {
@@ -35,17 +36,25 @@ class ListProduct extends Block
     protected $urlHelper;
 
     /**
+     * @var BuyNow
+     */
+    protected $buyNowViewModel;
+
+    /**
      * ListProduct constructor.
      * @param Context $context
      * @param UrlHelper $urlHelper
+     * @param BuyNow $buyNowViewModel
      * @param array $data
      */
     public function __construct(
         Context $context,
         UrlHelper $urlHelper,
+        BuyNow $buyNowViewModel,
         array $data = []
     ) {
         $this->urlHelper = $urlHelper;
+        $this->buyNowViewModel = $buyNowViewModel;
         parent::__construct($context, $data);
     }
 
@@ -80,5 +89,15 @@ class ListProduct extends Block
     public function getBuyNowUrl(\Magento\Catalog\Model\Product $product)
     {
         return $this->getUrl('buynow/cart/add', ['product' => $product->getEntityId()]);
+    }
+
+    /**
+     * Get button title set on the block, falling back to the configured title
+     *
+     * @return string
+     */
+    public function getButtonTitle()
+    {
+        return $this->getData('button_title') ?: ($this->buyNowViewModel->getButtonTitle() ?: 'Buy Now');
     }
 }
