@@ -1,3 +1,5 @@
+# Magento 2 Buy Now 
+
 <p>
   <a href="https://packagist.org/packages/mageprince/module-buynow"><img src="https://img.shields.io/packagist/v/mageprince/module-buynow?style=for-the-badge&logo=packagist&logoColor=F28D1A&label=packagist&color=2F7FC1" alt="Latest Stable Version"></a>
   <a href="https://packagist.org/packages/mageprince/module-buynow/stats"><img src="https://img.shields.io/packagist/dt/mageprince/module-buynow?style=for-the-badge&logo=packagist&logoColor=white&label=downloads&color=D4B53A" alt="Total Downloads"></a>
@@ -8,8 +10,6 @@
   <a href="https://github.com/mageprince/magento2-buynow/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-232F3E?style=for-the-badge" alt="License"></a>
   
 </p>
-
-# Magento 2 Buy Now 
 
 The Buy Now extension for Magento 2 streamlines the purchase process by adding a “Buy Now” button on product pages. With a single click, customers can skip the cart and go straight to checkout, making quick purchases faster and more convenient.
 
