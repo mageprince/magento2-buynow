@@ -1,9 +1,13 @@
-[![Latest Stable Version](https://poser.pugx.org/mageprince/module-buynow/v)](//packagist.org/packages/mageprince/module-buynow)
-[![Total Downloads](https://poser.pugx.org/mageprince/module-buynow/downloads)](//packagist.org/packages/mageprince/module-buynow)
-[![Monthly Downloads](https://poser.pugx.org/mageprince/module-buynow/d/monthly)](//packagist.org/packages/mageprince/module-buynow)
-[![License](https://poser.pugx.org/mageprince/module-buynow/license)](//packagist.org/packages/mageprince/module-buynow)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mageprince/magento2-buynow/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mageprince/magento2-buynow/?branch=master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/mageprince/magento2-buynow/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+<p>
+  <a href="https://packagist.org/packages/mageprince/module-buynow"><img src="https://img.shields.io/packagist/v/mageprince/module-buynow?style=for-the-badge&logo=packagist&logoColor=F28D1A&label=packagist&color=2F7FC1" alt="Latest Stable Version"></a>
+  <a href="https://packagist.org/packages/mageprince/module-buynow/stats"><img src="https://img.shields.io/packagist/dt/mageprince/module-buynow?style=for-the-badge&logo=packagist&logoColor=white&label=downloads&color=D4B53A" alt="Total Downloads"></a>
+  <a href="https://packagist.org/packages/mageprince/module-buynow/stats"><img src="https://img.shields.io/packagist/dm/mageprince/module-buynow?style=for-the-badge&label=monthly&color=D4B53A" alt="Monthly Downloads"></a>
+  <a href="https://business.adobe.com/products/magento/magento-commerce.html"><img src="https://img.shields.io/badge/magento-2.4-6CB83A?style=for-the-badge" alt="Magento 2.4"></a>
+  <a href="https://www.hyva.io/"><img src="https://img.shields.io/badge/hyv%C3%A4-compatible-0A1A3F?style=for-the-badge" alt="Hyvä compatible"></a>
+  <a href="https://mage-os.org/"><img src="https://img.shields.io/badge/mage--os-compatible-F26322?style=for-the-badge" alt="Mage-OS compatible"></a>
+  <a href="https://github.com/mageprince/magento2-buynow/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-232F3E?style=for-the-badge" alt="License"></a>
+  
+</p>
 
 # Magento 2 Buy Now 
 
@@ -33,25 +37,44 @@ Copy the content of the repo to the <b>app/code/Mageprince/BuyNow</b> folder and
     php bin/magento setup:di:compile
     php bin/magento setup:static-content:deploy
 
+# 🎨 Theme support
+
+| Location | Luma | Hyvä |
+|---|:---:|:---:|
+| Product view page | ✅ | ✅ |
+| Category product list | ✅ | ✅ |
+| Search results and advanced search results | ✅ | ✅ |
+| Custom templates (with the snippet below) | ✅ | ✅ |
+| Related, upsell, cross-sell, wishlist | ❌ | ❌ |
+
+- **Luma** uses the core add to cart forms and RequireJS. No template overrides.
+- **Hyvä** works out of the box, with no compat module. The module adds `hyva_*` layout handles with Alpine/Tailwind-friendly templates and no RequireJS. The buttons use classes the Hyvä default theme already compiles (`btn btn-primary`), so no Tailwind rebuild is needed.
+
 # ⚠️ Notice
 
 We do not provide support for placing the Buy Now button on related products, upsell blocks, wishlist, or any other custom locations, as this would require overriding Magento core .phtml files — something we strongly advise against in extension development. Many free and paid Buy Now modules override core files, which can lead to maintenance and upgrade issues.
 
+If you need the button in one of these places, add it to your own theme's template with the snippet below.
+
 # Add Buy Now in custom template
 
-If you wish to add the button to custom product templates, use following code snippet:
+To add the button to a custom product template, use the following code snippet:
 
-    $buyNowBtnHtml = $this->getLayout()
-        ->createBlock(\Mageprince\BuyNow\Block\Product\ListProduct::class)
-        ->setProduct($_item)
-        ->setButtonTitle('Buy Now')
-        ->setTemplate('Mageprince_BuyNow::buynow.phtml')
-        ->toHtml();
-    echo $buyNowBtnHtml;
+```php
+$buyNowBtnHtml = $block->getLayout()
+    ->createBlock(\Mageprince\BuyNow\Block\Product\ListProduct::class)
+    ->setProduct($_item)
+    ->setTemplate('Mageprince_BuyNow::buynow.phtml')
+    ->toHtml();
+echo $buyNowBtnHtml;
+```
 
-<b>Change `$_item` to current product object.</b>
+- **Change `$_item` to the current product object.**
+- **Hyvä theme:** use the template `Mageprince_BuyNow::hyva/buynow.phtml` instead. It renders a Hyvä-styled button (`btn btn-primary`).
+- **Button title:** the button uses the title set in the admin configuration. To override it for one placement, add `->setButtonTitle('Your title')` before `->toHtml()`.
+- **Don't place it inside another form.** The snippet renders its own `<form>`, and HTML forms cannot be nested. Put it outside the add to cart form, for example after its closing `</form>` tag. On Hyvä, the whole product item in product lists and sliders is a `<form>`, so place the snippet outside the item.
 
-You can use the code above to display the Buy Now button wherever you want on your product page. Just remember not to paste this code into the add to cart form or any other form. Put the code after `</form>` tag. Below is a screenshot showing how to use the code.
+The screenshot below shows how to use the code in a Luma template.
 
 **Sample template:** _vendor/magento/module-catalog/view/frontend/templates/product/list/items.phtml_
 
@@ -60,7 +83,7 @@ You can use the code above to display the Buy Now button wherever you want on yo
 
 # 🤝 Contribution
 
-Want to contribute to this extension? The quickest way is to <a href="https://help.github.com/articles/about-pull-requests/">open a pull request</a> on GitHub.
+Want to contribute to this extension? The quickest way is to <a href="https://help.github.com/articles/about-pull-requests/">open a pull request</a> on GitHub. Contributions are welcome and are accepted under the MIT License.
 
 # 🛠 Support
 
@@ -80,5 +103,6 @@ If you encounter any problems or bugs, please <a href="https://github.com/magepr
 
 <img width="687" alt="Custom Product Template" src="https://github.com/mageprince/magento2-buynow/assets/24751863/cce268e2-e2ea-465b-82ca-afc3e0f8d209">
 
+# 📄 License
 
-
+This extension is open source and released under the [MIT License](LICENSE).

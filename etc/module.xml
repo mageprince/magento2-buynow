@@ -5,19 +5,13 @@
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the mageprince.com license that is
- * available through the world-wide-web at this URL:
- * https://mageprince.com/end-user-license-agreement
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
+ * This source file is subject to the MIT License that is bundled with this
+ * package in the file LICENSE.
  *
  * @category    MagePrince
  * @package     Mageprince_BuyNow
  * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
- * @license     https://mageprince.com/end-user-license-agreement
+ * @license     https://opensource.org/licenses/MIT MIT License
  */
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
