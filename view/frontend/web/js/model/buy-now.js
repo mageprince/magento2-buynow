@@ -7,6 +7,7 @@ define([
         addToCartUrl: 'checkout/cart/add',
         buyNowCartUrl: 'buynow/cart/add',
         buyNowBtnListSelector: '.mageprince-buynow-btn-list',
+        isListBtnInitialized: false,
 
         /**
          * Replace add to cart url
@@ -20,16 +21,27 @@ define([
 
         /**
          * Init buy now button click event for list page
+         *
+         * Delegated and bound once, so it works whether it runs before or
+         * after buy-now-list.js moves the buttons into the add to cart forms.
          */
-        initListBuyNowBtnSelector: function (e) {
+        initListBuyNowBtnSelector: function () {
             var self = this;
-            $(this.buyNowBtnListSelector).click(function (e) {
-                e.stopImmediatePropagation();
-                e.preventDefault();
-                $(this).attr('disabled', true);
+            if (this.isListBtnInitialized) {
+                return;
+            }
+            this.isListBtnInitialized = true;
+            $(document).on('click', this.buyNowBtnListSelector, function (e) {
                 var form = $(this).closest('form'),
-                    baseUrl = form.attr('action'),
-                    buyNowUrl = self.replaceBuyNowUrl(baseUrl);
+                    baseUrl,
+                    buyNowUrl;
+                e.preventDefault();
+                if (!form.length) {
+                    return false;
+                }
+                $(this).attr('disabled', true);
+                baseUrl = form.attr('action');
+                buyNowUrl = self.replaceBuyNowUrl(baseUrl);
                 form.attr('action', buyNowUrl);
                 form.trigger('submit');
                 form.attr('action', baseUrl);
