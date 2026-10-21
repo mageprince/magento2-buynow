@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="catalog.list.item.addto">
+            <block class="Mageprince\BuyNow\Block\Product\ListProduct" name="mageprince.buynow.hyva.product.list" template="Mageprince_BuyNow::hyva/buynow-list.phtml" ifconfig="buynow/general/enable_list">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Mageprince\BuyNow\ViewModel\BuyNow</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

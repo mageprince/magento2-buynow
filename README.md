@@ -9,6 +9,9 @@
 
 The Buy Now extension for Magento 2 streamlines the purchase process by adding a “Buy Now” button on product pages. With a single click, customers can skip the cart and go straight to checkout, making quick purchases faster and more convenient.
 
+<img src="https://github.com/hyva-themes.png?size=40" height="20" align="top" alt="Hyvä"/> **Hyvä Theme compatible** – works out of the box on Hyvä, no compat module needed.<br/>
+<img src="https://github.com/mage-os.png?size=40" height="20" align="top" alt="Mage-OS"/> **Mage-OS compatible** – supports Mage-OS as well as Magento Open Source and Adobe Commerce.
+
 Admin Configuration: `Admin > Stores > Configuration > MagePrince > Buy Now`
 
 # 🚀 Installation Instructions

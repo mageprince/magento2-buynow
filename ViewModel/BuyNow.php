@@ -43,6 +43,17 @@ class BuyNow implements ArgumentInterface
     }
 
     /**
+     * Convert add to cart url into buy now url
+     *
+     * @param string $addToCartUrl
+     * @return string
+     */
+    public function getBuyNowUrl($addToCartUrl)
+    {
+        return str_replace('checkout/cart/add', 'buynow/cart/add', $addToCartUrl);
+    }
+
+    /**
      * Check if keep cart products
      *
      * @return string

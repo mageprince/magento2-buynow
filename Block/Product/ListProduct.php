@@ -70,4 +70,15 @@ class ListProduct extends Block
             ]
         ];
     }
+
+    /**
+     * Get buy now url without uenc, safe to use in cached product list item html
+     *
+     * @param \Magento\Catalog\Model\Product $product
+     * @return string
+     */
+    public function getBuyNowUrl(\Magento\Catalog\Model\Product $product)
+    {
+        return $this->getUrl('buynow/cart/add', ['product' => $product->getEntityId()]);
+    }
 }
