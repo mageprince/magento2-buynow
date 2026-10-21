@@ -5,35 +5,29 @@
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the mageprince.com license that is
- * available through the world-wide-web at this URL:
- * https://mageprince.com/end-user-license-agreement
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
+ * This source file is subject to the MIT License that is bundled with this
+ * package in the file LICENSE.
  *
  * @category    MagePrince
  * @package     Mageprince_BuyNow
  * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
- * @license     https://mageprince.com/end-user-license-agreement
+ * @license     https://opensource.org/licenses/MIT MIT License
  */
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <buynow>
             <general>
-                <keep_cart_products>0</keep_cart_products>
+                <keep_cart_products>1</keep_cart_products>
                 <enable_list>1</enable_list>
                 <enable_view>1</enable_view>
                 <enable_search>1</enable_search>
                 <enable_advanced_search>1</enable_advanced_search>
                 <button_title>Buy Now</button_title>
-                <custom_buynow_button_code><![CDATA[$buyNowBtnHtml = $this->getLayout()
+                <custom_buynow_button_code><![CDATA[// Hyvä theme: use 'Mageprince_BuyNow::hyva/buynow.phtml'
+$buyNowBtnHtml = $block->getLayout()
     ->createBlock(\Mageprince\BuyNow\Block\Product\ListProduct::class)
     ->setProduct($_item)
-    ->setButtonTitle('Buy Now')
     ->setTemplate('Mageprince_BuyNow::buynow.phtml')
     ->toHtml();
 echo $buyNowBtnHtml;]]>

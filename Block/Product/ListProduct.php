@@ -5,19 +5,13 @@
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the mageprince.com license that is
- * available through the world-wide-web at this URL:
- * https://mageprince.com/end-user-license-agreement
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
+ * This source file is subject to the MIT License that is bundled with this
+ * package in the file LICENSE.
  *
  * @category    MagePrince
  * @package     Mageprince_BuyNow
  * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
- * @license     https://mageprince.com/end-user-license-agreement
+ * @license     https://opensource.org/licenses/MIT MIT License
  */
 
 namespace Mageprince\BuyNow\Block\Product;
@@ -26,6 +20,7 @@ use Magento\Catalog\Block\Product\Context;
 use Magento\Catalog\Block\Product\ProductList\Item\Block;
 use Magento\Framework\App\ActionInterface;
 use Magento\Framework\Url\Helper\Data as UrlHelper;
+use Mageprince\BuyNow\ViewModel\BuyNow;
 
 class ListProduct extends Block
 {
@@ -35,17 +30,25 @@ class ListProduct extends Block
     protected $urlHelper;
 
     /**
+     * @var BuyNow
+     */
+    protected $buyNowViewModel;
+
+    /**
      * ListProduct constructor.
      * @param Context $context
      * @param UrlHelper $urlHelper
+     * @param BuyNow $buyNowViewModel
      * @param array $data
      */
     public function __construct(
         Context $context,
         UrlHelper $urlHelper,
+        BuyNow $buyNowViewModel,
         array $data = []
     ) {
         $this->urlHelper = $urlHelper;
+        $this->buyNowViewModel = $buyNowViewModel;
         parent::__construct($context, $data);
     }
 
@@ -69,5 +72,26 @@ class ListProduct extends Block
                 ActionInterface::PARAM_NAME_URL_ENCODED => $this->urlHelper->getEncodedUrl($url),
             ]
         ];
+    }
+
+    /**
+     * Get buy now url without uenc, safe to use in cached product list item html
+     *
+     * @param \Magento\Catalog\Model\Product $product
+     * @return string
+     */
+    public function getBuyNowUrl(\Magento\Catalog\Model\Product $product)
+    {
+        return $this->getUrl('buynow/cart/add', ['product' => $product->getEntityId()]);
+    }
+
+    /**
+     * Get button title set on the block, falling back to the configured title
+     *
+     * @return string
+     */
+    public function getButtonTitle()
+    {
+        return $this->getData('button_title') ?: ($this->buyNowViewModel->getButtonTitle() ?: 'Buy Now');
     }
 }

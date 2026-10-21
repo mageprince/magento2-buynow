@@ -3,8 +3,8 @@
     "description": "Magento2 Buy Now Module",
     "homepage": "https://github.com/mageprince/magento2-buynow",
     "type": "magento2-module",
-    "version": "1.4.0",
-    "license": "GPL-3.0-or-later",
+    "version": "1.5.0",
+    "license": "MIT",
     "authors": [
         {
           "name": "Prince Patel",

@@ -7,22 +7,59 @@ button.action.primary.mageprince-buynow-btn-list {
     white-space: nowrap;
 }
 
+.mageprince-buynow-list-form {
+    align-items: stretch;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
 .catalog-product-view {
+    .box-tocart .actions:has(.mageprince-buynow) {
+        align-items: flex-start;
+        column-gap: 2%;
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+            flex: 0 0 100%;
+            order: 3;
+        }
+
+        > .action.tocart {
+            flex: 0 0 49%;
+            margin-right: 0;
+            order: 1;
+            width: 49%;
+        }
+
+        > .mageprince-buynow {
+            flex: 0 0 49%;
+            order: 2;
+        }
+    }
+
     .mageprince-buynow {
-        display: inline;
         .mageprince-buy-now-btn {
             font-size: 1.8rem;
             line-height: 2.2rem;
+            margin-bottom: 15px;
             padding: 14px 17px;
-            width: 49%;
+            width: 100%;
         }
     }
 }
 
 @media (max-width: 767px) {
+    .mageprince-buynow-list-form {
+        flex-direction: column;
+    }
+
     .catalog-product-view {
-        .mageprince-buynow {
-            .mageprince-buy-now-btn {
+        .box-tocart .actions:has(.mageprince-buynow) {
+            > .action.tocart,
+            > .mageprince-buynow {
+                flex-basis: 100%;
                 width: 100%;
             }
         }

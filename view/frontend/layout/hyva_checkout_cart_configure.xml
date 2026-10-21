@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License that is bundled with this
+ * package in the file LICENSE.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://opensource.org/licenses/MIT MIT License
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Product form submits to update item options when editing a cart item -->
+        <referenceBlock name="mageprince.buynow.product.simple" remove="true"/>
+    </body>
+</page>

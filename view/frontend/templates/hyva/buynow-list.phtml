@@ -1,0 +1,68 @@
+<?php
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License that is bundled with this
+ * package in the file LICENSE.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://opensource.org/licenses/MIT MIT License
+ */
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\HyvaCsp;
+use Hyva\Theme\ViewModel\LucideIcons;
+use Magento\Framework\Escaper;
+use Mageprince\BuyNow\Block\Product\ListProduct;
+use Mageprince\BuyNow\ViewModel\BuyNow;
+
+/** @var ListProduct $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+/** @var HyvaCsp $hyvaCsp */
+
+/** @var LucideIcons $lucideIcons */
+$lucideIcons = $viewModels->require(LucideIcons::class);
+/** @var BuyNow $viewModel */
+$viewModel = $block->getViewModel();
+$product = $block->getProduct();
+$buttonTitle = __($viewModel->getButtonTitle());
+
+// Grouped and bundle products link to the product page instead of an add to cart form
+$canBuyNow = $product
+    && $product->isSaleable()
+    && !in_array($product->getTypeId(), ['bundle', 'grouped'], true);
+?>
+<?php if ($canBuyNow): ?>
+    <button
+        type="submit"
+        formaction="<?= $escaper->escapeUrl($block->getBuyNowUrl($product)) ?>"
+        aria-label="<?= $escaper->escapeHtmlAttr($buttonTitle . ' ' . $product->getName()) ?>"
+        class="btn btn-primary text-sm mageprince-buynow-btn-list"
+        data-addto="buynow"
+    >
+        <?= $lucideIcons->zapHtml('', 24, 24, ['aria-hidden' => 'true']) ?>
+        <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
+    </button>
+    <script>
+        (() => {
+            // The addto container renders next to wishlist/compare, so move Buy Now right after Add to Cart
+            // and take over its classes so both buttons look and wrap the same
+            const buyNowBtn = document.currentScript.previousElementSibling;
+            const form = buyNowBtn.closest('form');
+            const cartBtn = form && form.querySelector('[data-addto="cart"]');
+            if (!cartBtn) {
+                return;
+            }
+            buyNowBtn.className = cartBtn.className + ' mageprince-buynow-btn-list';
+            buyNowBtn.querySelector('span').className = cartBtn.querySelector('span').className;
+            cartBtn.classList.remove('me-auto', 'md:me-0');
+            cartBtn.after(buyNowBtn);
+        })();
+    </script>
+    <?php $hyvaCsp->registerInlineScript() ?>
+<?php endif; ?>

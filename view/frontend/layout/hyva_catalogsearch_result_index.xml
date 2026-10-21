@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License that is bundled with this
+ * package in the file LICENSE.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://opensource.org/licenses/MIT MIT License
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="catalog.list.item.addto">
+            <block class="Mageprince\BuyNow\Block\Product\ListProduct" name="mageprince.buynow.hyva.product.search" template="Mageprince_BuyNow::hyva/buynow-list.phtml" ifconfig="buynow/general/enable_search">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Mageprince\BuyNow\ViewModel\BuyNow</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

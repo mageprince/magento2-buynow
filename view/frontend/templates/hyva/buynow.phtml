@@ -1,0 +1,45 @@
+<?php
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License that is bundled with this
+ * package in the file LICENSE.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_BuyNow
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://opensource.org/licenses/MIT MIT License
+ */
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\LucideIcons;
+use Magento\Framework\Escaper;
+use Mageprince\BuyNow\Block\Product\ListProduct;
+
+/** @var ListProduct $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+/** @var LucideIcons $lucideIcons */
+$lucideIcons = $viewModels->require(LucideIcons::class);
+$product = $block->getProduct();
+$buttonTitle = __($block->getButtonTitle());
+?>
+<?php if ($product && $product->isSaleable()): ?>
+    <form method="post"
+          action="<?= $escaper->escapeUrl($block->getBuyNowUrl($product)) ?>"
+          class="mageprince-buynow">
+        <?= $block->getBlockHtml('formkey') ?>
+        <input type="hidden" name="product" value="<?= (int) $product->getId() ?>">
+        <button
+            type="submit"
+            aria-label="<?= $escaper->escapeHtmlAttr($buttonTitle . ' ' . $product->getName()) ?>"
+            class="btn btn-primary mageprince-buynow-btn"
+        >
+            <?= $lucideIcons->zapHtml('', 24, 24, ['aria-hidden' => 'true']) ?>
+            <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
+        </button>
+    </form>
+<?php endif; ?>
